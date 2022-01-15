@@ -1,0 +1,130 @@
+.video-solutions-content-geekysrm {
+    padding: 10px 20px;
+    position: relative;
+}
+
+hr {
+    height: 1px !important;
+    padding: 0;
+    margin: 10px 0 10px 0 !important;
+    overflow: hidden;
+    background: #e0e0e0;
+    border: none;
+}
+
+.disclaimer {
+    font-style: italic;
+    margin-bottom: 35px;
+    opacity: 0.8;
+}
+
+.made-by {
+    cursor: help;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.made-by a {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.made-by:hover a{
+    color: #1890ff;
+    text-decoration: underline;
+}
+
+.new-tab-arrow {
+    display: none;
+    margin-top: -2px;
+}
+
+.new-tab-arrow svg {
+    width: 14px;
+}
+
+.youtube-watch {
+    display: flex;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.yt {
+    margin: 0 2px;
+}
+
+.youtube-watch:hover  .new-tab-arrow{ 
+    display:block;
+}
+
+.youtube-watch:hover  .yt{ 
+    color: #FF0000;
+}
+
+.youtube-watch:hover {
+    background: #eeeeee;
+    margin: -3px -5px -1px -5px; 
+    padding: 3px 5px 1px 5px;
+    border-radius: 7px;
+}
+
+.feedback {
+    font-style: italic;
+    margin-top: -20px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.feedback p {
+    margin-top: 10px;
+}
+
+.share {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 100px;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.share-button:hover {
+  color: white !important;
+}
+
+.share-icon,
+.share-text {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.share-icon {
+  margin-top: 4px;
+}
+
+.twitter-share {
+  background: #1DA1F2;
+  margin-right: 10px;
+}
+
+.linkedin-share {
+  background: #0077b5;
+  margin-right: 10px;
+}
+
+.facebook-share {
+  background: #3b5998;
+  margin-right: 10px;
+}
+
+.facebook-share .share-icon {
+    margin-top: 3px;
+}
+
+.reddit-share {
+  background: #ff4500;
+}

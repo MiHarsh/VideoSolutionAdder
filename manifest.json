@@ -1,0 +1,44 @@
+{
+  "name": "Video Solutions",
+  "description": "Watch free Leetcode/GFG video ▶ solutions on the problem page itself.",
+  "version": "2.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "*://leetcode.com/*",
+    "*://youtube-scrape.herokuapp.com/",
+    "*://practice.geeksforgeeks.org/*"
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://leetcode.com/*"],
+      "css": ["vendor/lite-yt-embed.css", "app.css"],
+      "js": [
+        "vendor/webcomponents.js",
+        "vendor/arrive.min.js",
+        "vendor/lite-yt-embed.js",
+        "leetcode.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://practice.geeksforgeeks.org/*"],
+      "css": ["vendor/lite-yt-embed.css", "app.css"],
+      "js": [
+        "vendor/webcomponents.js",
+        "vendor/arrive.min.js",
+        "vendor/lite-yt-embed.js",
+        "gfg.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2
+}
