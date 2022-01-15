@@ -7,8 +7,10 @@ chrome.runtime.onMessage.addListener((msg, sender, resp) => {
     let fetchurl = "";
     if (platform === "leetcode") {
       fetchurl = `${API_URL}leetcode ${problemId} ${problemTitle} solution`;
-    } else {
+    } else if (platform === "gfg") {
       fetchurl = `${API_URL}geeks for geeks ${problemTitle} solution`;
+    } else if (platform === "codeforces") {
+      fetchurl = `${API_URL}codeforces ${problemId} ${problemTitle} solution`;
     }
 
     fetch(fetchurl)
