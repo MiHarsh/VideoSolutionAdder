@@ -53,14 +53,14 @@ document.arrive("div[data-cy='question-title']", function () {
           const idWithTitleArray = idWithTitle.split(".");
           const problemId = Number(idWithTitleArray[0].trim());
           const problemTitle = idWithTitleArray[1].trim();
-          const platform = 'leetcode';
+          const platform = "leetcode";
           chrome.runtime.sendMessage(
             {
               command: "fetch",
               data: {
                 problemId,
                 problemTitle,
-                platform
+                platform,
               },
             },
             (response) => {
@@ -141,12 +141,14 @@ document.arrive("div[data-cy='question-title']", function () {
           const idWithTitleArray = idWithTitle.split(".");
           const problemId = Number(idWithTitleArray[0].trim());
           const problemTitle = idWithTitleArray[1].trim();
+          const platform = "leetcode";
           chrome.runtime.sendMessage(
             {
               command: "fetch",
               data: {
                 problemId,
                 problemTitle,
+                platform,
               },
             },
             (response) => {
