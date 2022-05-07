@@ -27,6 +27,13 @@ window.onload = () => {
             );
             element.childNodes[5].children[0].innerText =
               list[quesNo]["companyTags"].length;
+
+            // if premium, replace the href link
+
+            if (list[quesNo]["premium"]) {
+              element.children[1].children[0].childNodes[0].children[0].children[0].children[0].href =
+                list[quesNo]["url"];
+            }
           } else {
             element.childNodes[5].children[0].innerText = "-";
           }
