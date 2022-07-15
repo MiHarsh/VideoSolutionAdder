@@ -28,6 +28,11 @@ if (location.href.trim().includes("/problems/") && !videoSolutionsTabElement) {
   // to improve tab visibility
   document.querySelector(".nav-tabs__discussion").style.display = "none";
 
+  // remove metadata to remove problem hardness
+
+  document.getElementsByClassName("row problem-meta-summary")[0].style.display =
+    "none";
+
   // create div to store video contents
 
   const textSolutionDiv = document.getElementById("submission");
