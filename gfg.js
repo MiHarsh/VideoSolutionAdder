@@ -1,60 +1,32 @@
 console.log("GFG Video Solutions -> Content Script Running!");
 
 console.log("loaded");
-const videoSolutionsTabElement = document.querySelector("#videosolutions-tab");
-// we are in a problem page and there is no existing video solutions tab
-if (location.href.trim().includes("/problems/") && !videoSolutionsTabElement) {
+// we are in a problem page
+if (location.href.trim().includes("/problems/")) {
   // 'this' refers to the newly created element
   console.log("title arrived");
 
-  // create tab
-  const tabSubmissionDiv = document.getElementsByClassName(
-    "nav nav-tabs problem-menu-tabs"
-  )[0];
-
-  var videoSolutionsTabDiv = document.createElement("li");
-  videoSolutionsTabDiv.id = "videosolutions-tab";
-  videoSolutionsTabDiv.innerHTML = `<a data-toggle="tab" href="#videosolutions" aria-expanded="true"> 
-                                      <span class="editorial-icon"></span> 
-                                      Video Solution
-                                      </a>`;
-  console.log("Create element ran");
-
-  tabSubmissionDiv.insertBefore(
-    videoSolutionsTabDiv,
-    document.querySelector(".nav-tabs__my-submissions")
-  );
-
-  // to improve tab visibility
-  document.querySelector(".nav-tabs__discussion").style.display = "none";
+  const editorialDivTab = document.querySelectorAll(
+    ".green.item.problems_header_items__ndiZL"
+  )[1];
+  editorialDivTab.innerHTML = `<i aria-hidden="true" class="file alternate outline icon"></i>Solutions`;
 
   // remove metadata to remove problem hardness
+  document.getElementsByClassName(
+    "problems_header_description__t_8PB"
+  )[0].style.display = "none";
 
-  document.getElementsByClassName("row problem-meta-summary")[0].style.display =
-    "none";
-
-  // create div to store video contents
-
-  const textSolutionDiv = document.getElementById("submission");
-  const textSolutionDivClass = textSolutionDiv.getAttribute("class");
-
-  const videoSolutionsDiv = document.createElement("div");
-
-  videoSolutionsDiv.id = "videosolutions";
-  videoSolutionsDiv.className = `video-solutions-geekysrm ${textSolutionDivClass}`;
-
-  textSolutionDiv.parentNode.insertBefore(
-    videoSolutionsDiv,
-    textSolutionDiv.nextSibling
-  );
-
-  videoSolutionsTabDiv.addEventListener("click", (event) => {
-    // we do below stuff only if video solutions tab is currently not selected
-    // in solution tab
+  editorialDivTab.addEventListener("click", (event) => {
     console.log("in solution tab");
 
-    const solutionContentDiv = document.getElementById("videosolutions");
-    const problemTitle = document.querySelector(".problem-tab__name").innerText;
+    // create a div to store all the videos; it will be append as child to editorial div
+    const solutionContentDiv = document.createElement("div");
+    solutionContentDiv.id = "videosolutions";
+    solutionContentDiv.className = `video-solutions-geekysrm `;
+
+    const problemTitle = document.querySelector(
+      ".problems_header_content__title__L2cB2.g-mb-0"
+    ).innerText;
     const problemId = 0; //since its gfg no id is given
     const platform = "gfg";
     chrome.runtime.sendMessage(
@@ -70,6 +42,18 @@ if (location.href.trim().includes("/problems/") && !videoSolutionsTabElement) {
         solutionContentDiv.innerHTML = getVideosHTML(response.data);
       }
     );
+
+    // wait till editorial tab clicked, and editorial div exists
+    const myInterval = setInterval(() => {
+      const editorialDiv = document.querySelector(
+        ".editorialSubmission_editorials_wrapper__kD_Pk"
+      );
+      if (editorialDiv) {
+        clearInterval(myInterval);
+        editorialDiv.removeChild(editorialDiv.firstChild);
+        editorialDiv.appendChild(solutionContentDiv);
+      }
+    }, 1000);
   });
 }
 
