@@ -61,6 +61,17 @@
         "cses.js"
       ],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["*://cses.fi/problemset/"],
+      "css": ["vendor/lite-yt-embed.css", "app.css"],
+      "js": [
+        "vendor/webcomponents.js",
+        "vendor/arrive.min.js",
+        "vendor/lite-yt-embed.js",
+        "cses-ui.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "manifest_version": 2
