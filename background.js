@@ -12,6 +12,9 @@ chrome.runtime.onMessage.addListener((msg, sender, resp) => {
     } else if (platform === "codeforces") {
       fetchurl = `${API_URL}codeforces ${problemId} ${problemTitle} solution`;
     }
+    else if (platform === "cses"){
+      fetchurl = `${API_URL}cses ${problemTitle} solution`;
+    }
 
     fetch(fetchurl)
       .then((response) => response.json())
