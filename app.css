@@ -3,14 +3,6 @@
   position: relative;
 }
 
-hr {
-  height: 1px !important;
-  padding: 0;
-  margin: 10px 0 10px 0 !important;
-  overflow: hidden;
-  background: #e0e0e0;
-  border: none;
-}
 
 .disclaimer {
   font-style: italic;
